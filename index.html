@@ -3,30 +3,74 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>jQuery Template</title>
+  <title>Date Of Death</title>
+
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css">
   <script>
     $(function() {
-       $('h2').fadeIn(2000);  
+      $('h2').fadeOut(5000);
+      $('button').click(function() {
+        var name = $("#name").val();
+        var day = $("#day").val();
+        var month = $("#month").val();
+        var yearOriginal = $("#year").val();
+        var yearHolder = 0;
+        var year = 0;
+        if (day < 32 && day > 0 && month > 0 && month < 13) {
+          day = Math.floor((Math.random() * 28) + 1);
+          month = Math.floor((Math.random() * 12) + 1);
+        }
+        else {
+          alert("Please enter a normal date");
+        }
+        if (yearOriginal < 1980) {
+          yearHolder = Math.floor((Math.random() * 60) + 37);
+          year = parseFloat(yearOriginal) + parseFloat(yearHolder);
+        }
+        else if (yearOriginal < 1990) {
+          yearHolder = Math.floor((Math.random() * 70) + 27);
+          year = parseFloat(yearOriginal) + parseFloat(yearHolder);
+        }
+        else if (yearOriginal < 2000) {
+          yearHolder = Math.floor((Math.random() * 80) + 19);
+          year = parseFloat(yearOriginal) + parseFloat(yearHolder);
+        }
+        else if (yearOriginal < 2010) {
+          yearHolder = Math.floor((Math.random() * 90) + 7);
+          year = parseFloat(yearOriginal) + parseFloat(yearHolder);
+        }
+        var dod = month + "-" + day + "-" + year;
+        var newName = name + "'s Date Of Death Is ";
+        $('h1').fadeOut(000);
+        $("h2").html(dod);
+        $('h1').html(newName);
+        $('body').css('background-color', '#B6D8C0');
+        $('h2').css('color', '#F56991');
+        $('h1').fadeIn(2000);
+        $('h2').fadeIn(3000);
 
+      });
     });
   </script>
- 
+
 </head>
 
 <body>
-  <h1> Your Date Of Death Is</h1> 
-  <h2></h2>
-  Name:
-  <br>
-  <input type="text" name="" />
-  <br> Age:
-  <br>
-  <input type="text" name="" />
-  <br> Date Of Birth:
-  <br>
-  <input type="text" name="" />
+  <h1> Your Date Of Death Is</h1>
+  <h2>Find Out</h2>
+    Name:
+    <br>
+    <input type="text" id="name" />
+    <br> Date Of Birth:
+    <br>
+    <input type="text" id="day" maxlength="2" placeholder="day">
+    <br>
+    <input type="text" id="month" maxlength="2" placeholder="month">
+    <br>
+    <input type="text" id="year" maxlength="4" placeholder="year">
+    <br>
+    <button>Find Out!</button>
 </body>
 
 </html>
