@@ -17,6 +17,10 @@
         var yearOriginal = $("#year").val();
         var yearHolder = 0;
         var year = 0;
+         if (name == "") {
+          alert("PUT YOUR NAME");
+        }
+        
         if (day < 32 && day > 0 && month > 0 && month < 13) {
           day = Math.floor((Math.random() * 28) + 1);
           month = Math.floor((Math.random() * 12) + 1);
@@ -61,14 +65,14 @@
   <h2>Find Out</h2>
     Name:
     <br>
-    <input type="text" id="name" />
+    <input type="text" id="name" placeholder="Ortacos">
     <br> Date Of Birth:
     <br>
-    <input type="text" id="day" maxlength="2" placeholder="day">
+    <input type="text" id="day" maxlength="2" placeholder="Date">
     <br>
-    <input type="text" id="month" maxlength="2" placeholder="month">
+    <input type="text" id="month" maxlength="2" placeholder="Month">
     <br>
-    <input type="text" id="year" maxlength="4" placeholder="year">
+    <input type="text" id="year" maxlength="4" placeholder="Year">
     <br>
     <button>Find Out!</button>
 </body>
