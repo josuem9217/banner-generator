@@ -8,19 +8,22 @@
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css">
   <script>
+    String.prototype.capitalizeFirstLetter = function() { //function run to capitalize 1st letter
+      return this.charAt(0).toUpperCase() + this.slice(1);//of the submited name
+    }
     $(function() {
       $('h2').fadeOut(5000);
       $('button').click(function() {
         var name = $("#name").val();
+        name = name.capitalizeFirstLetter(); //first letter capitalized
         var day = $("#day").val();
         var month = $("#month").val();
         var yearOriginal = $("#year").val();
         var yearHolder = 0;
         var year = 0;
-         if (name == "") {
+        if (name == "") {
           alert("PUT YOUR NAME");
         }
-        
         if (day < 32 && day > 0 && month > 0 && month < 13) {
           day = Math.floor((Math.random() * 28) + 1);
           month = Math.floor((Math.random() * 12) + 1);
@@ -62,19 +65,18 @@
 
 <body>
   <h1> Your Date Of Death Is</h1>
-  <h2>Find Out</h2>
-    Name:
-    <br>
-    <input type="text" id="name" placeholder="Ortacos">
-    <br> Date Of Birth:
-    <br>
-    <input type="text" id="day" maxlength="2" placeholder="Day">
-    <br>
-    <input type="text" id="month" maxlength="2" placeholder="Month">
-    <br>
-    <input type="text" id="year" maxlength="4" placeholder="Year">
-    <br>
-    <button>Find Out!</button>
+  <h2>Find Out</h2> Name:
+  <br>
+  <input type="text" id="name" placeholder="Ortacos">
+  <br> Date Of Birth:
+  <br>
+  <input type="text" id="day" maxlength="2" placeholder="Day">
+  <br>
+  <input type="text" id="month" maxlength="2" placeholder="Month">
+  <br>
+  <input type="text" id="year" maxlength="4" placeholder="Year">
+  <br>
+  <button>Find Out!</button>
 </body>
- 
-</html>  
+
+</html>
